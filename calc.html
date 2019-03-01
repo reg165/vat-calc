@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>VAT Calculator</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="theme-color" content="#ff6600" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/side-nav-mobile.css">
+<link rel="stylesheet" href="css/w3-colors.css">
+<link rel="stylesheet" href="css/slideshow.css">
+<link rel="stylesheet" href="css/4.7.0-css-font-awesome-min.css">
+<link rel="stylesheet" href="css/icon-family-Material-Icons.css">
+<link rel="stylesheet" href="css/3.3.7-2-css-bootstrap-min.css">
+<script src="jquery/jquery-1-12-4-jquery-min.js"></script>
+<script src="jquery/jquery-3.2.1-jquery-min.js"></script>
+<script src="bootstrap/3.3.7-js-bootstrap-min.js"></script>
+<script src="js/w3.js"></script>
+</head>
+<style>
+
+body {
+
+	background: linear-gradient(253deg, #0cc898, #1797d2, #864fe1);
+    background-size: 300% 300%;
+    -webkit-animation: Background 15s ease infinite;
+    -moz-animation: Background 15s ease infinite;
+    animation: Background 15s ease infinite;
+}
+
+.page-wrap{
+	margin:0 auto;
+	max-width:1400px; 
+}.page-wrap{
+	margin:0 auto;
+	max-width:1400px; 
+}
+
+  @-webkit-keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  @-moz-keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  @keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  .full-screen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(https://i.imgur.com/wCG2csZ.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column
+    /* works with row or column */
+    
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 4em;
+    letter-spacing: -2px;
+    text-align: center;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, .6);
+  }
+  
+  h1:after {
+    display: block;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: 'Poiret One', sans-serif;
+    content: 'Subtitle goes here';
+    font-size: .4em;
+    text-align: center;
+  }
+  
+  .button-line {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    font-size: 1.4em;
+    opacity: .8;
+    padding: 20px 40px;
+    text-decoration: none;
+    transition: all .5s ease;
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+  }
+  
+  .button-line:hover {
+    opacity: 1;
+  }
+
+.flash {
+	animation-name: flash;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {color: #9ccaf5;}
+    to {color: #ffffff;}
+}
+
+.w3-light-blue,.w3-hover-light-blue:hover {
+	color:#000!important;
+	background-color: #99ccff!important
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin:0 auto;
+  max-width:1400px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<body class="w3-mobile w3-hide-large">
+	
+	<div style="margin-top: 8px" class="w3-container page-wrap">
+		<p style="text-align: center; font-size: 21px; margin-top: 0px; font-family: Tahoma; color: white"><b style="color: yellow">VAT<br>Calculator</b></p>
+		<div style="border-bottom: 1px solid #ffffff; padding: 19px 2px; text-align: center; width: 100%; font-size: 10px; font-family: Tahoma">
+			<p style="text-align: center; font-size: 15px; font-family: Tahoma; color: white"><b>SELECT LOAN TERM</b></p>
+  			<button style="width: 80px; height: 60px; font-size: 17px; background-color: white; font-weight: bold" class="tablink" onclick="clearField(amount),openTab(event, 'term1')">T2</button>
+  			<button style="width: 80px; height: 60px; font-size: 17px; background-color: white; font-weight: bold" class="tablink" onclick="clearField(amount2),openTab(event, 'term2')">T3</button>
+  			<button style="width: 80px; height: 60px; font-size: 17px; background-color: white; font-weight: bold" class="tablink" onclick="clearField(amount3),openTab(event, 'term3')">T4</button>
+  			<button style="width: 80px; height: 60px; font-size: 17px; background-color: white; font-weight: bold" class="tablink" onclick="clearField(amount4), openTab(event, 'term4')">T5</button>
+		</div>
+	<div>
+	
+	<div class="w3-display-container page-wrap" style="text-align: center; width: 100%; margin-top: 8px; margin-bottom: 15px">
+		<div id="term1" class="w3-container tab" style="display:none">
+			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T2 / 60 DAYS</b></p>
+  			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+					<br><button id="button60" onclick="computeBreakdown()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
+					<button onclick="clearField(amount)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+			</div>
+
+			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
+				<div class="w3-animate-zoom" id="statement" style="align: center; font-weight: bold; font-family: Tahoma; font-size: 10px; width: 100%; transition: 1s">
+					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
+					<p style="margin-top: 5px">B R E A K D O W N</p></div>
+					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t1"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t1"></a></td></tr>
+    					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t1"></a></td>
+    					</tr><tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VATABLE SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vatable_sales_t1"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VAT (12%) :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vat_12_t1"></a></td></tr>	
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">TOTAL SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="total_sales_t1"></a></td></tr>
+					</table>
+					<p style="color: lightgray; font-size: 6px; text-align: left; margin-left: 30px"><i>* VAT-inclusive</i></p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="term2" class="w3-container tab" style="display:none">
+			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T3 / 90 DAYS</b></p>
+  			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount2" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+					<br><button id="button90" onclick="computeBreakdown2()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
+					<button onclick="clearField(AMOUNT2)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+			</div>
+
+			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
+				<div class="w3-animate-zoom" id="statement" style="align: center; font-weight: bold; font-family: Tahoma; font-size: 10px; width: 100%; transition: 1s">
+					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
+					<p style="margin-top: 5px">B R E A K D O W N</p></div>
+					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t2"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t2"></a></td></tr>
+    					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t2"></a></td>
+    					</tr><tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VATABLE SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vatable_sales_t2"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VAT (12%) :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vat_12_t2"></a></td></tr>	
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">TOTAL SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="total_sales_t2"></a></td></tr>
+					</table>
+					<p style="color: lightgray; font-size: 6px; text-align: left; margin-left: 30px"><i>* VAT-inclusive</i></p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="term3" class="w3-container tab" style="display:none">
+			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T4 / 120 DAYS</b></p>
+  			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount3" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+					<br><button id="button120" onclick="computeBreakdown3()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
+					<button onclick="clearField(AMOUNT3)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+			</div>
+
+			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
+				<div class="w3-animate-zoom" id="statement" style="align: center; font-weight: bold; font-family: Tahoma; font-size: 10px; width: 100%; transition: 1s">
+					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
+					<p style="margin-top: 5px">B R E A K D O W N</p></div>
+					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t3"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t3"></a></td></tr>
+    					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t3"></a></td>
+    					</tr><tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VATABLE SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vatable_sales_t3"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VAT (12%) :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vat_12_t3"></a></td></tr>	
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">TOTAL SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="total_sales_t3"></a></td></tr>
+					</table>
+					<p style="color: lightgray; font-size: 6px; text-align: left; margin-left: 30px"><i>* VAT-inclusive</i></p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="term4" class="w3-container tab" style="display:none">
+			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T5 / 150 DAYS</b></p>
+  			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount4" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+					<br><button id="button150" onclick="computeBreakdown4()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
+					<button onclick="clearField(AMOUNT4)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+			</div>
+
+			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
+				<div class="w3-animate-zoom" id="statement" style="align: center; font-weight: bold; font-family: Tahoma; font-size: 10px; width: 100%; transition: 1s">
+					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
+					<p style="margin-top: 5px">B R E A K D O W N</p></div>
+					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t4"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t4"></a></td></tr>
+    					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t4"></a></td>
+    					</tr><tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VATABLE SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vatable_sales_t4"></a></td></tr>
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">VAT (12%) :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="vat_12_t4"></a></td></tr>	
+						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">TOTAL SALES :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="total_sales_t4"></a></td></tr>
+					</table>
+					<p style="color: lightgray; font-size: 6px; text-align: left; margin-left: 30px"><i>* VAT-inclusive</i></p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div style="color: white; font-size: 9px; text-align: center"><b>QCREDIT CORP.</b><br>&copy 2019. All rights Reserved.<br>rlb9</div>
+
+
+<script>
+	
+	function clearField(input) {
+    input.value = "";
+	document.getElementById('payment_t1').innerHTML = "";
+	document.getElementById('applied_principal_t1').innerHTML = "";
+	document.getElementById('interest_income_t1').innerHTML = "";
+	document.getElementById('vatable_sales_t1').innerHTML = "";
+	document.getElementById('vat_12_t1').innerHTML = "";
+	document.getElementById('total_sales_t1').innerHTML = "";
+	document.getElementById('payment_t2').innerHTML = "";
+	document.getElementById('applied_principal_t2').innerHTML = "";
+	document.getElementById('interest_income_t2').innerHTML = "";
+	document.getElementById('vatable_sales_t2').innerHTML = "";
+	document.getElementById('vat_12_t2').innerHTML = "";
+	document.getElementById('total_sales_t2').innerHTML = "";
+	document.getElementById('payment_t3').innerHTML = "";
+	document.getElementById('applied_principal_t3').innerHTML = "";
+	document.getElementById('interest_income_t3').innerHTML = "";
+	document.getElementById('vatable_sales_t3').innerHTML = "";
+	document.getElementById('vat_12_t3').innerHTML = "";
+	document.getElementById('total_sales_t3').innerHTML = "";
+	document.getElementById('payment_t4').innerHTML = "";
+	document.getElementById('applied_principal_t4').innerHTML = "";
+	document.getElementById('interest_income_t4').innerHTML = "";
+	document.getElementById('vatable_sales_t4').innerHTML = "";
+	document.getElementById('vat_12_t4').innerHTML = "";
+	document.getElementById('total_sales_t4').innerHTML = "";
+	};
+	
+
+	var input = document.getElementById("AMOUNT");
+	input.addEventListener("keyup", function(event) {
+    	event.preventDefault();
+    	if (event.keyCode === 13) {
+        document.getElementById("button60").click();
+    	}
+	});
+
+	var input2 = document.getElementById("AMOUNT2");
+	input2.addEventListener("keyup", function(event) {
+    	event.preventDefault();
+    	if (event.keyCode === 13) {
+        document.getElementById("button90").click();
+    	}
+	});
+
+	var input3 = document.getElementById("AMOUNT3");
+	input3.addEventListener("keyup", function(event) {
+    	event.preventDefault();
+    	if (event.keyCode === 13) {
+        document.getElementById("button120").click();
+    	}
+	});
+
+	var input4 = document.getElementById("AMOUNT4");
+	input4.addEventListener("keyup", function(event) {
+    	event.preventDefault();
+    	if (event.keyCode === 13) {
+        document.getElementById("button150").click();
+    	}
+	});
+
+	function computeBreakdown(){
+	var AMOUNT = document.getElementById('AMOUNT').value;
+	if (AMOUNT == "") {
+        alert("Unable to compute. AMOUNT has no value.");
+        return false;
+    	} else if (AMOUNT < 25) {
+        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+        return false;
+    	}
+        var int_rate_1 = 16;
+	var int_plus_ir_t1 = (int_rate_1 / 116);
+
+	var payment_t1 = (AMOUNT * 1.00).toFixed(2);
+	var interest_income_t1 = (AMOUNT * int_plus_ir_t1).toFixed(2);
+	var applied_principal_t1 = (payment_t1 - interest_income_t1).toFixed(2);
+	var vatable_sales_t1 = (interest_income_t1 / 1.12).toFixed(2);
+	var vat_12_t1 = (vatable_sales_t1 * .12).toFixed(2);
+	var total_sales_t1 = interest_income_t1;
+
+	document.getElementById('payment_t1').innerHTML = payment_t1;
+	document.getElementById('applied_principal_t1').innerHTML = +applied_principal_t1;
+	document.getElementById('interest_income_t1').innerHTML = +interest_income_t1;
+	document.getElementById('vatable_sales_t1').innerHTML = +vatable_sales_t1;
+	document.getElementById('vat_12_t1').innerHTML = +vat_12_t1;
+	document.getElementById('total_sales_t1').innerHTML = +total_sales_t1;
+	};
+
+	function computeBreakdown2(){
+	var AMOUNT2 = document.getElementById('AMOUNT2').value;
+	if (AMOUNT2 == "") {
+        alert("Unable to compute. AMOUNT has no value.");
+        return false;
+    	} else if (AMOUNT2 < 25) {
+        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+        return false;
+    	}
+        var int_rate_2 = 21.75;
+	var int_plus_ir_t2 = (int_rate_2 / 121.75);
+
+	var payment_t2 = (AMOUNT2 * 1.00).toFixed(2);
+	var interest_income_t2 = (AMOUNT2 * int_plus_ir_t2).toFixed(2);
+	var applied_principal_t2 = (payment_t2 - interest_income_t2).toFixed(2);
+	var vatable_sales_t2 = (interest_income_t2 / 1.12).toFixed(2);
+	var vat_12_t2 = (vatable_sales_t2 * .12).toFixed(2);
+	var total_sales_t2 = interest_income_t2;
+
+	document.getElementById('payment_t2').innerHTML = payment_t2;
+	document.getElementById('applied_principal_t2').innerHTML = +applied_principal_t2;
+	document.getElementById('interest_income_t2').innerHTML = +interest_income_t2;
+	document.getElementById('vatable_sales_t2').innerHTML = +vatable_sales_t2;
+	document.getElementById('vat_12_t2').innerHTML = +vat_12_t2;
+	document.getElementById('total_sales_t2').innerHTML = +total_sales_t2;
+	};
+
+	function computeBreakdown3(){
+	var AMOUNT3 = document.getElementById('AMOUNT3').value;
+	if (AMOUNT3 == "") {
+        alert("Unable to compute. AMOUNT has no value.");
+        return false;
+    	} else if (AMOUNT3 < 25) {
+        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+        return false;
+    	}
+        var int_rate_3 = 26;
+	var int_plus_ir_t3 = (int_rate_3 / 126);
+
+	var payment_t3 = (AMOUNT3 * 1.00).toFixed(2);
+	var interest_income_t3 = (AMOUNT3 * int_plus_ir_t3).toFixed(2);
+	var applied_principal_t3 = (payment_t3 - interest_income_t3).toFixed(2);
+	var vatable_sales_t3 = (interest_income_t3 / 1.12).toFixed(2);
+	var vat_12_t3 = (vatable_sales_t3 * .12).toFixed(2);
+	var total_sales_t3 = interest_income_t3;
+
+	document.getElementById('payment_t3').innerHTML = payment_t3;
+	document.getElementById('applied_principal_t3').innerHTML = +applied_principal_t3;
+	document.getElementById('interest_income_t3').innerHTML = +interest_income_t3;
+	document.getElementById('vatable_sales_t3').innerHTML = +vatable_sales_t3;
+	document.getElementById('vat_12_t3').innerHTML = +vat_12_t3;
+	document.getElementById('total_sales_t3').innerHTML = +total_sales_t3;
+	};
+	
+	function computeBreakdown4(){
+	var AMOUNT4 = document.getElementById('AMOUNT4').value;
+	if (AMOUNT4 == "") {
+        alert("Unable to compute. AMOUNT has no value.");
+        return false;
+    	} else if (AMOUNT4 < 25) {
+        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+        return false;
+    	}
+    var int_rate_4 = 28.75;
+	var int_plus_ir_t4 = (int_rate_4 / 128.75);
+
+	var payment_t4 = (AMOUNT4 * 1.00).toFixed(2);
+	var interest_income_t4 = (AMOUNT4 * int_plus_ir_t4).toFixed(2);
+	var applied_principal_t4 = (payment_t4 - interest_income_t4).toFixed(2);
+	var vatable_sales_t4 = (interest_income_t4 / 1.12).toFixed(2);
+	var vat_12_t4 = (vatable_sales_t4 * .12).toFixed(2);
+	var total_sales_t4 = interest_income_t4;
+
+	document.getElementById('payment_t4').innerHTML = payment_t4;
+	document.getElementById('applied_principal_t4').innerHTML = +applied_principal_t4;
+	document.getElementById('interest_income_t4').innerHTML = +interest_income_t4;
+	document.getElementById('vatable_sales_t4').innerHTML = +vatable_sales_t4;
+	document.getElementById('vat_12_t4').innerHTML = +vat_12_t4;
+	document.getElementById('total_sales_t4').innerHTML = +total_sales_t4;
+	};
+
+	function hidestuff(){
+   	var x = document.getElementById('statement');
+        x.style.display = 'none';
+	};
+
+	function showstuff(){
+   	var x = document.getElementById('statement');
+        x.style.display = 'block';
+	}
+
+	function openTab(evt, tabName) {
+  	var i, x, tablinks;
+  	x = document.getElementsByClassName("tab");
+  	for (i = 0; i < x.length; i++) {
+     	x[i].style.display = "none";
+  	}
+  	tablinks = document.getElementsByClassName("tablink");
+  	for (i = 0; i < x.length; i++) {
+      	tablinks[i].className = tablinks[i].className.replace(" w3-blue", ""); 
+  	}
+  	document.getElementById(tabName).style.display = "block";
+  	evt.currentTarget.className += " w3-blue";
+	}
+
+</script>
+
+	
+</body>
+</html>
