@@ -184,7 +184,7 @@ tr:nth-child(even) {
 <body class="w3-mobile w3-hide-large">
 	
 	<div style="margin-top: 8px" class="w3-container page-wrap">
-		<p style="text-align: center; font-size: 21px; margin-top: 0px; font-family: Tahoma; color: white"><b style="color: yellow">VAT<br>Calculator</b></p>
+		<p style="text-align: center; font-size: 21px; margin-top: -30px; font-family: Tahoma; color: white"><b style="color: yellow">V A T<br>CALCULATOR</b></p>
 		<div style="border-bottom: 1px solid #ffffff; padding: 19px 2px; text-align: center; width: 100%; font-size: 10px; font-family: Tahoma">
 			<p style="text-align: center; font-size: 15px; font-family: Tahoma; color: white"><b>SELECT LOAN TERM</b></p>
   			<button style="width: 80px; height: 60px; font-size: 17px; background-color: white; font-weight: bold" class="tablink" onclick="clearField(amount),openTab(event, 'term1')">T2</button>
@@ -198,7 +198,7 @@ tr:nth-child(even) {
 		<div id="term1" class="w3-container tab" style="display:none">
 			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T2 / 60 DAYS</b></p>
   			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
-				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter amount Here" id="amount" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 17px"><br>
 					<br><button id="button60" onclick="computeBreakdown()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
 					<button onclick="clearField(amount)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
 			</div>
@@ -208,7 +208,7 @@ tr:nth-child(even) {
 					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
 					<p style="margin-top: 5px">B R E A K D O W N</p></div>
 					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
-    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">amount</th></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t1"></a></td></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t1"></a></td></tr>
     					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t1"></a></td>
@@ -224,9 +224,9 @@ tr:nth-child(even) {
 		<div id="term2" class="w3-container tab" style="display:none">
 			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T3 / 90 DAYS</b></p>
   			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
-				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount2" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter amount Here" id="amount2" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 17px"><br>
 					<br><button id="button90" onclick="computeBreakdown2()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
-					<button onclick="clearField(AMOUNT2)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+					<button onclick="clearField(amount2)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
 			</div>
 
 			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
@@ -234,7 +234,7 @@ tr:nth-child(even) {
 					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
 					<p style="margin-top: 5px">B R E A K D O W N</p></div>
 					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
-    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">amount</th></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t2"></a></td></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t2"></a></td></tr>
     					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t2"></a></td>
@@ -250,9 +250,9 @@ tr:nth-child(even) {
 		<div id="term3" class="w3-container tab" style="display:none">
 			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T4 / 120 DAYS</b></p>
   			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
-				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount3" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter amount Here" id="amount3" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 17px"><br>
 					<br><button id="button120" onclick="computeBreakdown3()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
-					<button onclick="clearField(AMOUNT3)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+					<button onclick="clearField(amount3)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
 			</div>
 
 			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
@@ -260,7 +260,7 @@ tr:nth-child(even) {
 					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
 					<p style="margin-top: 5px">B R E A K D O W N</p></div>
 					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
-    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">amount</th></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t3"></a></td></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t3"></a></td></tr>
     					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t3"></a></td>
@@ -276,9 +276,9 @@ tr:nth-child(even) {
 		<div id="term4" class="w3-container tab" style="display:none">
 			<p class="flash" style="margin-top: 0px; text-align: center; font-size: 18px"><b>ACTIVE : T5 / 150 DAYS</b></p>
   			<div style="margin-top: 0px; font-family: Tahoma; font-size: 10px; height: 130px">
-				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter Amount Here" id="amount4" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 15px"><br>
+				<input onfocus="clearField(this)" title="Ilagay ang halagang binayaran ng kustomer" placeholder="Enter amount Here" id="amount4" style=" border: 2px solid lightblue; width: 260px; height: 50px; text-align: center; font-style: Tahoma; font-weight: bold; font-size: 17px"><br>
 					<br><button id="button150" onclick="computeBreakdown4()" style="font-size: 14px; color: #000066; width: 110px; height: 40px; transition: 0.9s"><b>COMPUTE</b></button> 
-					<button onclick="clearField(AMOUNT4)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
+					<button onclick="clearField(amount4)" style="font-size: 14px; width: 110px; height: 40px; transition: 0.9s"><b>CLEAR</b></button>
 			</div>
 
 			<div class="w3-panel" style="align: center; width: 100%; margin-top: 1px">
@@ -286,7 +286,7 @@ tr:nth-child(even) {
 					<div style="color: white; font-size: 15px; text-align: center; margin-top: 7px; border-top: 1px solid #ffffff">
 					<p style="margin-top: 5px">B R E A K D O W N</p></div>
 					<table style="align: center; margin-bottom: 20px; margin-top: 20px; font-size: 15px; background-color: white; font-color: black">
-    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">AMOUNT</th></tr>
+    					<tr style="background-color: white; font-size: 14px"><th style="width: 50%">PARTICULARS</th><th style="text-align: center; width: 50%">amount</th></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray; border-top: 1px solid gray"><td style="text-align: right">MVL PAYMENT :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="payment_t4"></a></td></tr>
 						<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">APPLIED TO PRINCIPAL :</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px"  id="applied_principal_t4"></a></td></tr>
     					<tr style="background-color: white; font-size: 14px; border-bottom: 1px solid gray"><td style="text-align: right">INTEREST INCOME * <i></i>:</td><td style="background-color: white; text-align: right"><a style="color: black; font-size: 14px" id="interest_income_t4"></a></td>
@@ -335,7 +335,7 @@ tr:nth-child(even) {
 	};
 	
 
-	var input = document.getElementById("AMOUNT");
+	var input = document.getElementById("amount");
 	input.addEventListener("keyup", function(event) {
     	event.preventDefault();
     	if (event.keyCode === 13) {
@@ -343,7 +343,7 @@ tr:nth-child(even) {
     	}
 	});
 
-	var input2 = document.getElementById("AMOUNT2");
+	var input2 = document.getElementById("amount2");
 	input2.addEventListener("keyup", function(event) {
     	event.preventDefault();
     	if (event.keyCode === 13) {
@@ -351,7 +351,7 @@ tr:nth-child(even) {
     	}
 	});
 
-	var input3 = document.getElementById("AMOUNT3");
+	var input3 = document.getElementById("amount3");
 	input3.addEventListener("keyup", function(event) {
     	event.preventDefault();
     	if (event.keyCode === 13) {
@@ -359,7 +359,7 @@ tr:nth-child(even) {
     	}
 	});
 
-	var input4 = document.getElementById("AMOUNT4");
+	var input4 = document.getElementById("amount4");
 	input4.addEventListener("keyup", function(event) {
     	event.preventDefault();
     	if (event.keyCode === 13) {
@@ -368,19 +368,19 @@ tr:nth-child(even) {
 	});
 
 	function computeBreakdown(){
-	var AMOUNT = document.getElementById('AMOUNT').value;
-	if (AMOUNT == "") {
-        alert("Unable to compute. AMOUNT has no value.");
+	var amount = document.getElementById('amount').value;
+	if (amount == "") {
+        alert("Unable to compute. amount has no value.");
         return false;
-    	} else if (AMOUNT < 25) {
-        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+    	} else if (amount < 25) {
+        alert("Unable to compute. amount must be Php25.00 and above.");
         return false;
     	}
         var int_rate_1 = 16;
 	var int_plus_ir_t1 = (int_rate_1 / 116);
 
-	var payment_t1 = (AMOUNT * 1.00).toFixed(2);
-	var interest_income_t1 = (AMOUNT * int_plus_ir_t1).toFixed(2);
+	var payment_t1 = (amount * 1.00).toFixed(2);
+	var interest_income_t1 = (amount * int_plus_ir_t1).toFixed(2);
 	var applied_principal_t1 = (payment_t1 - interest_income_t1).toFixed(2);
 	var vatable_sales_t1 = (interest_income_t1 / 1.12).toFixed(2);
 	var vat_12_t1 = (vatable_sales_t1 * .12).toFixed(2);
@@ -395,19 +395,19 @@ tr:nth-child(even) {
 	};
 
 	function computeBreakdown2(){
-	var AMOUNT2 = document.getElementById('AMOUNT2').value;
-	if (AMOUNT2 == "") {
-        alert("Unable to compute. AMOUNT has no value.");
+	var amount2 = document.getElementById('amount2').value;
+	if (amount2 == "") {
+        alert("Unable to compute. amount has no value.");
         return false;
-    	} else if (AMOUNT2 < 25) {
-        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+    	} else if (amount2 < 25) {
+        alert("Unable to compute. amount must be Php25.00 and above.");
         return false;
     	}
         var int_rate_2 = 21.75;
 	var int_plus_ir_t2 = (int_rate_2 / 121.75);
 
-	var payment_t2 = (AMOUNT2 * 1.00).toFixed(2);
-	var interest_income_t2 = (AMOUNT2 * int_plus_ir_t2).toFixed(2);
+	var payment_t2 = (amount2 * 1.00).toFixed(2);
+	var interest_income_t2 = (amount2 * int_plus_ir_t2).toFixed(2);
 	var applied_principal_t2 = (payment_t2 - interest_income_t2).toFixed(2);
 	var vatable_sales_t2 = (interest_income_t2 / 1.12).toFixed(2);
 	var vat_12_t2 = (vatable_sales_t2 * .12).toFixed(2);
@@ -422,19 +422,19 @@ tr:nth-child(even) {
 	};
 
 	function computeBreakdown3(){
-	var AMOUNT3 = document.getElementById('AMOUNT3').value;
-	if (AMOUNT3 == "") {
-        alert("Unable to compute. AMOUNT has no value.");
+	var amount3 = document.getElementById('amount3').value;
+	if (amount3 == "") {
+        alert("Unable to compute. amount has no value.");
         return false;
-    	} else if (AMOUNT3 < 25) {
-        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+    	} else if (amount3 < 25) {
+        alert("Unable to compute. amount must be Php25.00 and above.");
         return false;
     	}
         var int_rate_3 = 26;
 	var int_plus_ir_t3 = (int_rate_3 / 126);
 
-	var payment_t3 = (AMOUNT3 * 1.00).toFixed(2);
-	var interest_income_t3 = (AMOUNT3 * int_plus_ir_t3).toFixed(2);
+	var payment_t3 = (amount3 * 1.00).toFixed(2);
+	var interest_income_t3 = (amount3 * int_plus_ir_t3).toFixed(2);
 	var applied_principal_t3 = (payment_t3 - interest_income_t3).toFixed(2);
 	var vatable_sales_t3 = (interest_income_t3 / 1.12).toFixed(2);
 	var vat_12_t3 = (vatable_sales_t3 * .12).toFixed(2);
@@ -449,19 +449,19 @@ tr:nth-child(even) {
 	};
 	
 	function computeBreakdown4(){
-	var AMOUNT4 = document.getElementById('AMOUNT4').value;
-	if (AMOUNT4 == "") {
-        alert("Unable to compute. AMOUNT has no value.");
+	var amount4 = document.getElementById('amount4').value;
+	if (amount4 == "") {
+        alert("Unable to compute. amount has no value.");
         return false;
-    	} else if (AMOUNT4 < 25) {
-        alert("Unable to compute. AMOUNT must be Php25.00 and above.");
+    	} else if (amount4 < 25) {
+        alert("Unable to compute. amount must be Php25.00 and above.");
         return false;
     	}
     var int_rate_4 = 28.75;
 	var int_plus_ir_t4 = (int_rate_4 / 128.75);
 
-	var payment_t4 = (AMOUNT4 * 1.00).toFixed(2);
-	var interest_income_t4 = (AMOUNT4 * int_plus_ir_t4).toFixed(2);
+	var payment_t4 = (amount4 * 1.00).toFixed(2);
+	var interest_income_t4 = (amount4 * int_plus_ir_t4).toFixed(2);
 	var applied_principal_t4 = (payment_t4 - interest_income_t4).toFixed(2);
 	var vatable_sales_t4 = (interest_income_t4 / 1.12).toFixed(2);
 	var vat_12_t4 = (vatable_sales_t4 * .12).toFixed(2);
